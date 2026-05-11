@@ -18,9 +18,26 @@ type Result struct {
 
 // Evaluates the input and returns the result
 func Evaluate(input Input) Result {
+	var findings []Finding
+	for _, entry := range Catalog{
+		matched, observed := entry.Check(input.Headers)
+
+		if matched {
+			findings = append(findings, Finding{
+				ID: entry.ID,
+                Header: entry.Header,
+                Status: entry.Status,
+                ObservedValue: observed,
+                Severity: entry.Severity,
+                Message: entry.Message,
+                Remediation: entry.Remediation,
+			})
+		}
+	}
+
 	return Result{
-		Findings: []Finding{},
-		Summary:  Summary{},
+		Findings: findings,
+		Summary:  computeSummary(findings),
 	}
 }
 
