@@ -30,11 +30,11 @@ const (
 // - Message: A human-readable message describing the finding
 // - Remediation: A remediation for the finding
 type Finding struct {
-	ID             string   `json:"id"`
-	Status         Status   `json:"status"`
-	Header         string   `json:"header"`
-	Severity       Severity `json:"severity"`
-	ObservedValue  *string  `json:"observed_value"`
-	Message        string   `json:"message"`
-	Remediation string   `json:"remediation"`
+	ID            string   `json:"id"`
+	Status        Status   `json:"status"`
+	Header        string   `json:"header"`
+	Severity      Severity `json:"severity"`
+	ObservedValue *string  `json:"observed_value"`
+	Message       string   `json:"message"`
+	Remediation   string   `json:"remediation"`
 }

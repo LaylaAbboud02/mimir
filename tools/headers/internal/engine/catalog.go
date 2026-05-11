@@ -3,13 +3,13 @@ package engine
 import "net/http"
 
 type CatalogEntry struct {
-	ID string `json:"id"`
-	Header string `json:"header"`
-	Status Status `json:"status"`
-	Severity Severity `json:"severity"`
-	Message string `json:"message"`
-	Remediation string `json:"remediation"`
-	Check func(http.Header) (matched bool, observed *string)
+	ID          string   `json:"id"`
+	Header      string   `json:"header"`
+	Status      Status   `json:"status"`
+	Severity    Severity `json:"severity"`
+	Message     string   `json:"message"`
+	Remediation string   `json:"remediation"`
+	Check       func(http.Header) (matched bool, observed *string)
 }
 
 var Catalog = []CatalogEntry{
